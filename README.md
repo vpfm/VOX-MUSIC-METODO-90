@@ -1,17 +1,17 @@
-# VOX MUSIC — Método 90 — V1.10
+# VOX MUSIC — Método 90 — Área do Artista V1.11
 
-Versão com biblioteca de vídeo-aulas revisada por contexto.
+Revisão completa dos links de aulas.
 
-## Curadoria desta versão
-- Afinação: Leandro Voz — Estágios da Afinação.
-- Exercícios de afinação: Descomplicando a Música — Como cantar afinado.
-- Aquecimento vocal: Gláucia Quites — exercícios para aquecer a voz.
-- Respiração/aquecimento completo: Full Voice Institute.
-- Música, melodia e ritmo: Decifrei — explicação direta.
-- Uso do microfone: Atelier de La Musique — Dica do Minuto.
-- Gravação com celular: Paulo Moreno.
-- Reels: Lívia Brasil.
+## Critério V1.11
+- Nenhum vídeo é mais reaproveitado automaticamente em vários temas.
+- Cada link só aparece quando corresponde diretamente à atividade.
+- A aula de microfone fica somente na atividade específica de microfone.
+- Aquecimento vocal fica nas rotinas de preparação vocal.
+- Respiração usa aula prática em português do Descomplicando a Música.
+- Afinação conceitual usa Leandro Voz; prática de afinação/solfejo usa Descomplicando a Música.
+- Melodia, harmonia e ritmo usa aula curta e direta do Decifrei.
+- Quando não há vídeo validado e realmente específico, a atividade fica sem link externo em vez de mostrar conteúdo fora do contexto.
 
-A plataforma não usa mais um vídeo genérico em temas como estúdio, lançamento ou mídia avançada quando não há uma aula revisada que corresponda diretamente ao exercício. Isso evita abrir conteúdo fora do contexto do dia.
-
-Login e recursos da V1.9 foram preservados.
+## Deploy
+Build: `npm install`
+Start: `node server.js`

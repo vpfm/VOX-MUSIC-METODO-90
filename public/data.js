@@ -25,7 +25,7 @@ function why(d){if(d<=7)return themes[d-1][1]; if([7,14,21,28,37,44,51,58,67,74,
 
 const RES={
  voice:'https://www.youtube.com/watch?v=xytuXfJO3D4', // Gláucia Quites — aquecimento vocal
- breath:'https://www.youtube.com/watch?v=4aXXfvcOpLM', // Full Voice Institute — sequência prática; usar trechos indicados
+ breath:'https://www.youtube.com/watch?v=uMV0wx6ao5M', // Descomplicando a Música — respiração diafragmática prática
  ear:'https://www.youtube.com/watch?v=vgoPjhyatcs', // Leandro Voz — estágios da afinação
  earPractice:'https://www.youtube.com/watch?v=zATt6sMW8Tk', // Descomplicando a Música — exercícios de afinação
  theory:'https://www.youtube.com/watch?v=SGF0-SJVqBg', // Decifrei — melodia, harmonia e ritmo
@@ -34,17 +34,13 @@ const RES={
  microphone:'https://www.youtube.com/watch?v=dU_k9XXHzbY' // Atelier de La Musique — uso do microfone
 };
 function resourceFor(d){
- // Só retorna vídeo quando a aula foi revisada e corresponde diretamente ao tema do dia.
+ // V1.11: nenhum vídeo é aplicado genericamente a uma faixa de dias.
+ // Só há link quando o conteúdo foi revisado e corresponde exatamente à atividade.
  if(d===1)return RES.voice;
  if(d===2)return RES.theory;
- if([4,16,17,20].includes(d))return RES.ear;
+ if(d===4)return RES.ear;
  if([8,9].includes(d))return RES.earPractice;
- if(d<=37)return RES.voice;
- if(d<=44)return RES.camera;
- if(d<=51)return RES.filming;
- if(d>=52&&d<=58)return RES.microphone;
- if(d>=59&&d<=67)return RES.microphone;
- // Estúdio, lançamento e mídia avançada ficam sem vídeo genérico para evitar conteúdo fora de contexto.
+ if(d===53)return RES.microphone; // dia específico: Microfone e movimentação
  return null;
 }
 
@@ -57,7 +53,7 @@ function activitiesFor(d){
  {icon:'⭐',title:'Minhas referências',mins:15,desc:'Escolha 3 artistas que você admira.',steps:['Escolha 3 nomes.','Explique o que chama sua atenção em cada um.'],deliver:'Enviar resposta'}];
  if(d===2)return [{icon:'🎼',title:'O que é música, melodia e ritmo?',mins:12,desc:'Antes de avançar, vamos entender três ideias básicas que você usará durante toda a jornada.',steps:['Música organiza sons e silêncios.','Melodia é a sequência de alturas que você canta ou assobia.','Ritmo organiza os sons no tempo.','Ouça uma música conhecida e bata palmas acompanhando o pulso.'],link:'https://www.youtube.com/watch?v=SGF0-SJVqBg',deliver:'Concluir prática'},{icon:'🌬️',title:'Respiração para o canto',mins:10,desc:'Vamos entender melhor o controle do ar no canto.',steps:['Observe a demonstração.','Repita com calma e sem exagerar a quantidade de ar.'],link:RES.breath,deliver:'Concluir'},{icon:'🎵',title:'Aplicar na música',mins:15,desc:'Cante um trecho da música do Dia 1 sem buscar potência.',steps:['Escolha um trecho confortável.','Perceba a melodia e marque o ritmo com a mão.','Grave uma tentativa.'],deliver:'Enviar áudio'},{icon:'🙂',title:'Como me senti?',mins:3,desc:'Conte como sua voz respondeu hoje.',steps:['Marque: muito confortável, confortável, cansativo ou desconfortável.'],deliver:'Responder'}];
 
- if(d===4)return [{icon:'🎯',title:'Vamos entender afinação',mins:12,desc:'Afinação é a capacidade de ouvir uma altura e reproduzi-la com precisão. Vamos treinar ouvido e voz sem forçar.',steps:['Ouça a nota de referência.','Espere um instante.','Cante a mesma nota.','Observe se ficou abaixo, próxima ou acima.'],link:'https://www.youtube.com/watch?v=vgoPjhyatcs',deliver:'Fazer teste',pitchTrainer:true,targetNote:'C4'},{icon:'🎼',title:'Solfejo inicial',mins:15,desc:'Ouça e repita pequenas sequências: Dó–Ré–Mi–Fá–Sol; Dó–Ré–Mi–Ré–Dó; Dó–Mi–Sol–Mi–Dó.',steps:['Ouça a referência na ferramenta.','Repita uma sequência de cada vez.','Faça 3 tentativas sem buscar volume.'],link:'https://www.youtube.com/watch?v=vgoPjhyatcs',deliver:'Concluir solfejo',pitchTrainer:true,targetNote:'C4'},{icon:'🎵',title:'Aplicar no repertório',mins:15,desc:'Agora leve a percepção para um trecho curto da música em estudo.',steps:['Ouça uma frase curta.','Pause.','Tente reproduzir a melodia.','Grave a melhor tentativa.'],deliver:'Enviar áudio'}];
+ if(d===4)return [{icon:'🎯',title:'Vamos entender afinação',mins:12,desc:'Afinação é a capacidade de ouvir uma altura e reproduzi-la com precisão. Vamos treinar ouvido e voz sem forçar.',steps:['Ouça a nota de referência.','Espere um instante.','Cante a mesma nota.','Observe se ficou abaixo, próxima ou acima.'],link:'https://www.youtube.com/watch?v=vgoPjhyatcs',deliver:'Fazer teste',pitchTrainer:true,targetNote:'C4'},{icon:'🎼',title:'Solfejo inicial',mins:15,desc:'Ouça e repita pequenas sequências: Dó–Ré–Mi–Fá–Sol; Dó–Ré–Mi–Ré–Dó; Dó–Mi–Sol–Mi–Dó.',steps:['Ouça a referência na ferramenta.','Repita uma sequência de cada vez.','Faça 3 tentativas sem buscar volume.'],link:RES.earPractice,deliver:'Concluir solfejo',pitchTrainer:true,targetNote:'C4'},{icon:'🎵',title:'Aplicar no repertório',mins:15,desc:'Agora leve a percepção para um trecho curto da música em estudo.',steps:['Ouça uma frase curta.','Pause.','Tente reproduzir a melodia.','Grave a melhor tentativa.'],deliver:'Enviar áudio'}];
  if(d===8)return [{icon:'🎼',title:'Conhecendo as notas',mins:15,desc:'Hoje vamos reconhecer Dó, Ré, Mi, Fá, Sol, Lá e Si e relacionar o que ouvimos com o que cantamos.',steps:['Use o afinador abaixo.','Ouça Dó e tente reproduzir.','Repita com Ré, Mi, Fá e Sol em região confortável.'],link:RES.earPractice,deliver:'Concluir',pitchTrainer:true,targetNote:'C4'},{icon:'🎵',title:'Música 1 — primeiro verso',mins:25,desc:'Aplique percepção e memória ao repertório.',steps:['Abra a letra demonstrativa.','Leia sem cantar.','Divida em frases curtas.','Repita sem consultar quando estiver seguro.'],material:'/materiais/letra-demo.html',materialLabel:'Abrir letra da música',deliver:'Enviar atividade'},{icon:'📝',title:'Fechar meu treino',mins:5,desc:'Registre como foi o dia.',steps:['Qual nota foi mais fácil?','Qual foi mais difícil?'],deliver:'Responder'}];
  if(d===9)return [{icon:'🎼',title:'Primeiros solfejos',mins:18,desc:'Solfejar é cantar uma sequência usando o nome das notas. Hoje faremos três padrões simples.',steps:['1: Dó–Ré–Mi–Ré–Dó.','2: Dó–Mi–Sol–Mi–Dó.','3: Dó–Ré–Mi–Fá–Sol–Fá–Mi–Ré–Dó.','Ouça, memorize e repita.'],link:RES.earPractice,deliver:'Concluir 3 exercícios',pitchTrainer:true,targetNote:'C4'},{icon:'🎵',title:'Percepção aplicada à Música 1',mins:25,desc:'Ouça uma frase do repertório e tente reproduzir sem cantar junto com a gravação.',steps:['Ouça.','Pause.','Cante sozinho.','Compare e repita.'],deliver:'Enviar áudio'},{icon:'📝',title:'Fechar meu treino',mins:5,desc:'Conte como foi.',steps:['Qual sequência foi mais difícil?'],deliver:'Responder'}];
  const title=dayTitle(d); const media=d>=45&&d<=51||d>=82&&d<=85; const stage=d>=52&&d<=58||d>=86&&d<=89; const studio=d>=68&&d<=74; const content=d>=38&&d<=44||d>=75&&d<=81;
@@ -67,7 +63,11 @@ function activitiesFor(d){
  else if(studio) arr.push({icon:'🎧',title:title,mins:35,desc:'Hoje vamos aproximar você do processo de gravação profissional.',steps:['Ouça a referência/guia cadastrada.','Execute por partes.','Aceite correções e repita quando necessário.'],deliver:'Enviar teste'});
  else if(content) arr.push({icon:'📱',title:title,mins:30,desc:'Vamos praticar comunicação e conteúdo de forma simples e natural.',steps:['Veja a referência cadastrada.','Grave uma primeira tentativa.','Faça uma segunda versão mais natural.'],deliver:'Enviar conteúdo'});
  else arr.push({icon:'🎵',title:title,mins:30,desc:'Trabalhe a música ou habilidade indicada para hoje.',steps:['Ouça/observe a referência.','Divida em pequenas partes.','Pratique.','Grave uma tentativa.'],deliver:'Enviar atividade'});
- const recursoDoDia=resourceFor(d); if(recursoDoDia) arr.forEach(a=>{if(!a.link)a.link=recursoDoDia});
+ // A preparação vocal pode usar a aula de aquecimento, pois o objetivo é exatamente esse.
+ if(arr[0] && arr[0].title==='Preparar minha voz') arr[0].link=RES.voice;
+ // Recurso temático só entra na atividade principal do dia, nunca em todos os cards.
+ const recursoDoDia=resourceFor(d);
+ if(recursoDoDia && arr[1] && !arr[1].link) arr[1].link=recursoDoDia;
  if([10,15,22,31,38,61,62,63].includes(d)){arr[1].material='/materiais/letra-demo.html';arr[1].materialLabel='Abrir letra demonstrativa';}
  if([11,18,32,39,64].includes(d)){arr[1].material='/materiais/guia-estudo-musica.html';arr[1].materialLabel='Abrir guia rápido';}
  if([27,45,46,47,82].includes(d)){arr[1].material='/materiais/texto-entrevista-radio.html';arr[1].materialLabel='Abrir roteiro de entrevista';}
