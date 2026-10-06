@@ -1,8 +1,8 @@
 {
   "name": "metodo90-artista",
-  "version": "1.11.0",
+  "version": "1.4.0",
   "private": true,
-  "description": "Vox Music Método 90 - Área do Artista com autenticação stateless corrigida para Render",
+  "description": "Protótipo da Plataforma do Artista - Método 90",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "express": "^4.21.2",
-    "qrcode": "^1.5.4"
+    "qrcode": "^1.5.4",
+    "express-session": "^1.18.1"
   }
 }

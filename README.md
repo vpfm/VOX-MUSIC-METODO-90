@@ -1,33 +1,31 @@
-# VOX MUSIC — Método 90 — Área do Artista V1.13
+# Método 90 — Área do Artista V1.4
 
-Revisão completa dos links de aulas.
+Protótipo para apresentação e deploy no Render, agora com tela de login da Área do Artista.
 
-## Critério V1.13
-- Nenhum vídeo é mais reaproveitado automaticamente em vários temas.
-- Cada link só aparece quando corresponde diretamente à atividade.
-- A aula de microfone fica somente na atividade específica de microfone.
-- Aquecimento vocal fica nas rotinas de preparação vocal.
-- Respiração usa aula prática em português do Descomplicando a Música.
-- Afinação conceitual usa Leandro Voz; prática de afinação/solfejo usa Descomplicando a Música.
-- Melodia, harmonia e ritmo usa aula curta e direta do Decifrei.
-- Quando não há vídeo validado e realmente específico, a atividade fica sem link externo em vez de mostrar conteúdo fora do contexto.
+## Acesso inicial de demonstração
+- Usuário: `artista`
+- Senha: `Metodo90@2026`
 
-## Deploy
-Build: `npm install`
-Start: `node server.js`
+> Para uso real, altere `ARTIST_USER` e `ARTIST_PASSWORD` nas Environment Variables do Render. Não reutilize a senha de demonstração.
+
+## Render
+1. Suba estes arquivos para um repositório GitHub.
+2. No Render, crie um Web Service apontando para o repositório, ou use o `render.yaml` como Blueprint.
+3. Build: `npm install`
+4. Start: `npm start`
+5. Após o deploy, abra a URL do serviço. O acesso será redirecionado para `/login`.
+
+## Segurança desta versão
+A autenticação usa sessão HTTP-only. Esta V1.4 possui um único acesso de artista para demonstração. A versão multiartista deverá usar banco de dados, senhas com hash e contas individuais.
+
+## V1.3 — Afinador e materiais
+- Afinador interativo no navegador: toca nota de referência e usa o microfone para indicar abaixo/próxima/acima.
+- Fundamentos musicais adicionados ao início da jornada: música, melodia, ritmo, afinação, notas e solfejo.
+- Materiais de apoio adicionados ao cronograma, com referências da Berklee Online, NIDCD/NIH e YouTube Creator Help.
+- O afinador precisa de HTTPS (o Render fornece) e permissão do microfone no navegador.
 
 
-## V1.13 — coerência revisada
-- Links externos somente quando correspondem diretamente ao tema.
-- Vídeo de uso do microfone mantido exclusivamente no Dia 53.
-- Dia 54 “Falar entre músicas” agora tem prática específica de transição e comunicação com o público, sem reaproveitar vídeo de microfone.
-- Atividades de palco, mídia, conteúdo, estúdio, repertório e show receberam instruções específicas conforme o tema do dia.
-- Mantidos modo demonstração, navegação livre pelos 90 dias, gravação/refazer/salvar e materiais demonstrativos.
-
-
-## V1.13 — Afinador simplificado para iniciantes
-- Remove a lista técnica C3–C5 da primeira experiência.
-- Mostra nomes amigáveis (Dó, Ré, Mi...) ao artista.
-- Fluxo guiado: Ouvir nota → Cantar a nota → Resultado.
-- Feedback em linguagem simples: perto, abaixo ou acima.
-- Mantém as frequências técnicas internamente para análise.
+## V1.4 — correção de login no Render
+- Configura `trust proxy` para HTTPS atrás do proxy do Render.
+- Cookie de sessão usa modo `secure: auto`.
+- Login só retorna sucesso depois de salvar a sessão.
