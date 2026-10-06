@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: metodo90-artista
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: ARTIST_USER
+        value: artista
+      - key: ARTIST_PASSWORD
+        value: Metodo90@2026
+      - key: SESSION_SECRET
+        generateValue: true

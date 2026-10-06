@@ -1,0 +1,6 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Acesso do Artista — Método 90</title><link rel="stylesheet" href="/login.css"></head>
+<body><main class="loginShell"><section class="loginCard"><div class="brand">VOX MUSIC</div><p class="tag">MÉTODO 90 • ÁREA DO ARTISTA</p><h1>Bem-vindo à sua jornada.</h1><p class="intro">Entre com seu usuário e senha para acessar as atividades do dia.</p><form id="loginForm"><label>Usuário<input id="usuario" name="usuario" autocomplete="username" required></label><label>Senha<input id="senha" name="senha" type="password" autocomplete="current-password" required></label><p id="erro" class="erro"></p><button type="submit">ENTRAR</button></form><p class="help">Seu acesso é individual. Em caso de dúvida, fale com sua equipe.</p></section></main>
+<script>
+document.getElementById('loginForm').addEventListener('submit',async(e)=>{e.preventDefault();const erro=document.getElementById('erro');erro.textContent='';const r=await fetch('/api/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({usuario:usuario.value.trim(),senha:senha.value})});if(r.ok){location.href='/';return;}const j=await r.json().catch(()=>({}));erro.textContent=j.message||'Não foi possível entrar.';});
+</script></body></html>
