@@ -1,31 +1,11 @@
-# Método 90 — Área do Artista V1.4
+# VOX MUSIC — Método 90 — V1.15
 
-Protótipo para apresentação e deploy no Render, agora com tela de login da Área do Artista.
+Versão de apresentação com a Área do Artista preservada.
 
-## Acesso inicial de demonstração
-- Usuário: `artista`
-- Senha: `Metodo90@2026`
-
-> Para uso real, altere `ARTIST_USER` e `ARTIST_PASSWORD` nas Environment Variables do Render. Não reutilize a senha de demonstração.
-
-## Render
-1. Suba estes arquivos para um repositório GitHub.
-2. No Render, crie um Web Service apontando para o repositório, ou use o `render.yaml` como Blueprint.
-3. Build: `npm install`
-4. Start: `npm start`
-5. Após o deploy, abra a URL do serviço. O acesso será redirecionado para `/login`.
-
-## Segurança desta versão
-A autenticação usa sessão HTTP-only. Esta V1.4 possui um único acesso de artista para demonstração. A versão multiartista deverá usar banco de dados, senhas com hash e contas individuais.
-
-## V1.3 — Afinador e materiais
-- Afinador interativo no navegador: toca nota de referência e usa o microfone para indicar abaixo/próxima/acima.
-- Fundamentos musicais adicionados ao início da jornada: música, melodia, ritmo, afinação, notas e solfejo.
-- Materiais de apoio adicionados ao cronograma, com referências da Berklee Online, NIDCD/NIH e YouTube Creator Help.
-- O afinador precisa de HTTPS (o Render fornece) e permissão do microfone no navegador.
-
-
-## V1.4 — correção de login no Render
-- Configura `trust proxy` para HTTPS atrás do proxy do Render.
-- Cookie de sessão usa modo `secure: auto`.
-- Login só retorna sucesso depois de salvar a sessão.
+## Alteração desta versão
+- Removida a visualização geral de semanas/dias da jornada.
+- Removidos os botões Dia anterior / Próximo dia do modo de apresentação.
+- Mantido somente o seletor **Modo Apresentação → Mostrar o dia**, para escolher qualquer Dia 1–90 durante reunião com os empresários.
+- Na experiência real do artista, a proposta continua sendo exibir somente o dia liberado.
+- Mantidos os recursos de afinação e solfejo da V1.14.
+- Cache de arquivos estáticos desativado para evitar que o navegador continue exibindo layout de versões anteriores após o deploy.
