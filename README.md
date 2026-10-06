@@ -1,20 +1,14 @@
-# VOX MUSIC — Método 90 — Área do Artista V1.7
+# VOX MUSIC — Método 90 — Área do Artista V1.9
 
-Versão corrigida para Render.
+Versão demonstrativa atualizada.
 
-## V1.7
-- botão **Gravar vídeo** abre câmera + microfone no navegador;
-- botões de áudio/gravação abrem o microfone;
-- **Enviar resposta/Responder** abre campo de resposta e salva a atividade;
-- removida da Área do Artista a seção **Semana por semana / Visão para apresentação**;
-- o artista vê as atividades do dia;
-- navegação Dia anterior/Próximo dia fica apenas na versão de demonstração para apresentação aos empresários;
-- mantém autenticação V1.6.
+## Ajustes V1.9
+- Ao salvar vídeo, áudio ou resposta, a janela fecha automaticamente.
+- Atividades enviadas passam a mostrar **Refazer atividade**.
+- O artista pode repetir a gravação/resposta quando quiser.
+- Links de aprendizagem foram padronizados para vídeos diretos do YouTube em português.
+- Mantidos: login Render, afinador, materiais demonstrativos e navegação livre pelos 90 dias no modo demonstração.
 
-> Nesta demonstração, respostas e status ficam no navegador (localStorage). A próxima etapa é persistir tudo no banco e disponibilizar no painel dos empresários.
-
-## V1.8 — Demonstração prática
-- Navegação livre pelos 90 dias com seletor "Ir para o dia".
-- Cada tela continua exibindo somente as atividades do dia escolhido.
-- Materiais demonstrativos internos: letra original, guia rápido de estudo e roteiro de entrevista de rádio.
-- Botões de materiais e QR Code integrados às atividades.
+## Render
+Build: `npm install`
+Start: `node server.js`
