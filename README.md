@@ -1,8 +1,8 @@
-# VOX MUSIC — Método 90 — Área do Artista V1.12
+# VOX MUSIC — Método 90 — Área do Artista V1.13
 
 Revisão completa dos links de aulas.
 
-## Critério V1.12
+## Critério V1.13
 - Nenhum vídeo é mais reaproveitado automaticamente em vários temas.
 - Cada link só aparece quando corresponde diretamente à atividade.
 - A aula de microfone fica somente na atividade específica de microfone.
@@ -17,9 +17,17 @@ Build: `npm install`
 Start: `node server.js`
 
 
-## V1.12 — coerência revisada
+## V1.13 — coerência revisada
 - Links externos somente quando correspondem diretamente ao tema.
 - Vídeo de uso do microfone mantido exclusivamente no Dia 53.
 - Dia 54 “Falar entre músicas” agora tem prática específica de transição e comunicação com o público, sem reaproveitar vídeo de microfone.
 - Atividades de palco, mídia, conteúdo, estúdio, repertório e show receberam instruções específicas conforme o tema do dia.
 - Mantidos modo demonstração, navegação livre pelos 90 dias, gravação/refazer/salvar e materiais demonstrativos.
+
+
+## V1.13 — Afinador simplificado para iniciantes
+- Remove a lista técnica C3–C5 da primeira experiência.
+- Mostra nomes amigáveis (Dó, Ré, Mi...) ao artista.
+- Fluxo guiado: Ouvir nota → Cantar a nota → Resultado.
+- Feedback em linguagem simples: perto, abaixo ou acima.
+- Mantém as frequências técnicas internamente para análise.
