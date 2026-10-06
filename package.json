@@ -1,6 +1,6 @@
 {
   "name": "metodo90-artista",
-  "version": "1.0.0",
+  "version": "1.4.0",
   "private": true,
   "description": "Protótipo da Plataforma do Artista - Método 90",
   "main": "server.js",

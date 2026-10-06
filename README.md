@@ -1,4 +1,4 @@
-# Método 90 — Área do Artista V1.1
+# Método 90 — Área do Artista V1.4
 
 Protótipo para apresentação e deploy no Render, agora com tela de login da Área do Artista.
 
@@ -16,10 +16,16 @@ Protótipo para apresentação e deploy no Render, agora com tela de login da Á
 5. Após o deploy, abra a URL do serviço. O acesso será redirecionado para `/login`.
 
 ## Segurança desta versão
-A autenticação usa sessão HTTP-only. Esta V1.1 possui um único acesso de artista para demonstração. A versão multiartista deverá usar banco de dados, senhas com hash e contas individuais.
+A autenticação usa sessão HTTP-only. Esta V1.4 possui um único acesso de artista para demonstração. A versão multiartista deverá usar banco de dados, senhas com hash e contas individuais.
 
 ## V1.3 — Afinador e materiais
 - Afinador interativo no navegador: toca nota de referência e usa o microfone para indicar abaixo/próxima/acima.
 - Fundamentos musicais adicionados ao início da jornada: música, melodia, ritmo, afinação, notas e solfejo.
 - Materiais de apoio adicionados ao cronograma, com referências da Berklee Online, NIDCD/NIH e YouTube Creator Help.
 - O afinador precisa de HTTPS (o Render fornece) e permissão do microfone no navegador.
+
+
+## V1.4 — correção de login no Render
+- Configura `trust proxy` para HTTPS atrás do proxy do Render.
+- Cookie de sessão usa modo `secure: auto`.
+- Login só retorna sucesso depois de salvar a sessão.

@@ -4,13 +4,16 @@ const QRCode = require('qrcode');
 const path = require('path');
 
 const app = express();
+// Render termina o HTTPS no proxy. Confiar no primeiro proxy permite
+// que cookies de sessão seguros funcionem corretamente em produção.
+app.set('trust proxy', 1);
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 app.use(session({
   secret: process.env.SESSION_SECRET || 'metodo90-demo-secret-trocar-no-render',
   resave: false,
   saveUninitialized: false,
-  cookie: { httpOnly: true, sameSite: 'lax', secure: process.env.NODE_ENV === 'production', maxAge: 1000*60*60*12 }
+  cookie: { httpOnly: true, sameSite: 'lax', secure: 'auto', maxAge: 1000*60*60*12 }
 }));
 
 const ARTIST_USER = process.env.ARTIST_USER || 'artista';
@@ -22,7 +25,14 @@ app.post('/api/login',(req,res)=>{
   if(usuario===ARTIST_USER && senha===ARTIST_PASSWORD){
     req.session.authenticated=true;
     req.session.role='artist';
-    return res.json({ok:true});
+    // Só confirma o login depois que a sessão foi persistida.
+    return req.session.save((err)=>{
+      if(err){
+        console.error('Erro ao salvar sessão:', err);
+        return res.status(500).json({ok:false,message:'Não foi possível iniciar sua sessão. Tente novamente.'});
+      }
+      return res.json({ok:true});
+    });
   }
   res.status(401).json({ok:false,message:'Usuário ou senha incorretos.'});
 });
