@@ -34,15 +34,31 @@ const RES={
  microphone:'https://www.youtube.com/watch?v=dU_k9XXHzbY' // Atelier de La Musique — uso do microfone
 };
 function resourceFor(d){
- // V1.11: nenhum vídeo é aplicado genericamente a uma faixa de dias.
- // Só há link quando o conteúdo foi revisado e corresponde exatamente à atividade.
+ // V1.12: links somente quando o vídeo corresponde exatamente ao tema do dia.
+ // Em caso de dúvida, a atividade fica prática e sem vídeo externo — melhor sem link do que link fora de contexto.
  if(d===1)return RES.voice;
- if(d===2)return RES.theory;
+ if(d===2)return RES.breath;
  if(d===4)return RES.ear;
  if([8,9].includes(d))return RES.earPractice;
- if(d===53)return RES.microphone; // dia específico: Microfone e movimentação
+ if(d===53)return RES.microphone; // Microfone e movimentação — uso correto do microfone
  return null;
 }
+
+function mainPractice(title){
+ const t=title.toLowerCase();
+ if(t.includes('falar entre músicas')) return {desc:'Treine falas curtas entre uma música e outra para criar conexão com o público sem quebrar o ritmo do show.',steps:['Escolha duas músicas do repertório.','Prepare uma fala de 15 a 30 segundos que conecte uma música à outra.','Evite discursos longos: cumprimente, contextualize ou faça uma pergunta simples ao público.','Grave a sequência: música → fala → próxima música.']};
+ if(t.includes('entrada de palco')) return {desc:'Treine os primeiros segundos do show: postura, olhar, energia e início da primeira música.',steps:['Defina de onde você entra.','Entre com postura firme e sem pressa.','Olhe para o público antes de começar.','Grave a entrada e o primeiro minuto do show.']};
+ if(t.includes('microfone')) return {desc:'Pratique distância, posição e movimentação com o microfone sem prejudicar a voz nem a comunicação.',steps:['Assista à aula específica sobre uso do microfone.','Segure pelo corpo e mantenha a cápsula direcionada à boca.','Teste a distância ao cantar forte e suave.','Caminhe e cante sem afastar o microfone de forma aleatória.']};
+ if(t.includes('emoção')) return {desc:'Construa intenção para que a música tenha começo, crescimento e chegada emocional.',steps:['Defina em uma frase o sentimento central da música.','Marque os trechos de maior e menor intensidade.','Cante sem exagerar gestos.','Grave e observe se a emoção ficou clara.']};
+ if(t.includes('energia no palco')) return {desc:'Treine variação de energia e movimento sem perder respiração, afinação e naturalidade.',steps:['Escolha uma música de maior energia.','Planeje dois ou três deslocamentos no palco.','Mantenha contato visual com diferentes pontos do público.','Grave e avalie se o movimento ajuda a música.']};
+ if(t.includes('entrevista')||t.includes('podcast')||t.includes('televisão')||t.includes('perguntas')) return {desc:'Treine respostas curtas, verdadeiras e claras, como em uma situação profissional de mídia.',steps:['Leia uma pergunta por vez.','Responda primeiro em até 30 segundos.','Repita de forma mais natural, sem decorar.','Grave a melhor versão para avaliação.']};
+ if(t.includes('story')||t.includes('reel')||t.includes('conteúdo')||t.includes('teaser')||t.includes('bastidores')||t.includes('divulgar')) return {desc:'Crie uma peça curta de conteúdo com linguagem natural e objetivo claro.',steps:['Defina uma única mensagem.','Grave uma versão curta.','Assista e retire excessos.','Grave novamente com mais naturalidade.']};
+ if(t.includes('estúdio')||t.includes('gravação')||t.includes('música de trabalho')||t.includes('escuta crítica')) return {desc:'Pratique uma etapa real da preparação para gravação, priorizando precisão e capacidade de repetir.',steps:['Defina o trecho que será trabalhado.','Faça uma primeira tomada.','Escute e escolha um ponto para corrigir.','Repita e compare as duas versões.']};
+ if(t.includes('repertório')||t.includes('música nova')||t.includes('interpretando minha música')||t.includes('cantar sem depender')) return {desc:'Trabalhe o repertório de forma objetiva, transformando estudo em execução.',steps:['Escolha o trecho indicado.','Divida em partes pequenas.','Repita até executar sem interromper.','Grave uma tentativa completa.']};
+ if(t.includes('show')) return {desc:'Faça uma simulação de show para avaliar repertório, comunicação, postura e continuidade.',steps:['Defina a sequência antes de começar.','Execute sem parar por pequenos erros.','Inclua entrada, músicas e falas.','Grave tudo e anote três ajustes.']};
+ return null;
+}
+
 
 function activitiesFor(d){
  if([7,14,21,28,37,44,51,58,67,74,81].includes(d)) return [{icon:'🌿',title:'Recuperação',mins:10,desc:'Sem treino obrigatório. Faça apenas cuidados leves e registre se sentiu cansaço ou desconforto durante a semana.',steps:['Descanse a voz de esforços desnecessários.','Hidrate-se normalmente.','Se houver desconforto persistente, avise sua equipe.']}];
@@ -63,8 +79,9 @@ function activitiesFor(d){
  else if(studio) arr.push({icon:'🎧',title:title,mins:35,desc:'Hoje vamos aproximar você do processo de gravação profissional.',steps:['Ouça a referência/guia cadastrada.','Execute por partes.','Aceite correções e repita quando necessário.'],deliver:'Enviar teste'});
  else if(content) arr.push({icon:'📱',title:title,mins:30,desc:'Vamos praticar comunicação e conteúdo de forma simples e natural.',steps:['Veja a referência cadastrada.','Grave uma primeira tentativa.','Faça uma segunda versão mais natural.'],deliver:'Enviar conteúdo'});
  else arr.push({icon:'🎵',title:title,mins:30,desc:'Trabalhe a música ou habilidade indicada para hoje.',steps:['Ouça/observe a referência.','Divida em pequenas partes.','Pratique.','Grave uma tentativa.'],deliver:'Enviar atividade'});
- // A preparação vocal pode usar a aula de aquecimento, pois o objetivo é exatamente esse.
- if(arr[0] && arr[0].title==='Preparar minha voz') arr[0].link=RES.voice;
+ // V1.12: adapta a atividade principal ao tema real do dia.
+ const pratica=mainPractice(title);
+ if(pratica && arr[1]){arr[1].desc=pratica.desc;arr[1].steps=pratica.steps;}
  // Recurso temático só entra na atividade principal do dia, nunca em todos os cards.
  const recursoDoDia=resourceFor(d);
  if(recursoDoDia && arr[1] && !arr[1].link) arr[1].link=recursoDoDia;
