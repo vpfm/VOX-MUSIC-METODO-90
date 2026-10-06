@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
-<header class="topbar"><div><strong>VOX MUSIC</strong><span>Método 90 • Artista</span></div><div class="topActions"><button id="resetBtn" class="ghost">Reiniciar demo</button><button id="logoutBtn" class="ghost">Sair</button></div></header>
+<header class="topbar"><div><strong>VOX MUSIC</strong><span>Método 90 • Artista</span></div><div class="topActions"><button id="logoutBtn" class="ghost">Sair</button></div></header>
 <main class="shell">
   <section class="hero">
     <div><p class="eyebrow">MINHA JORNADA</p><h1 id="greeting">Oi, Victor Chefe! 👋</h1><p id="intro"></p></div>
@@ -20,8 +20,10 @@
   <section class="todayHead"><div><p class="eyebrow">HOJE</p><h2 id="todayTitle"></h2><p id="todayWhy"></p></div><div class="time" id="totalTime"></div></section>
   <section id="activities" class="activities"></section>
   <section class="finish"><button id="finishDay" class="primary">Concluir meu dia ✓</button><p id="finishMsg"></p></section>
-  <section class="journey"><div class="journeyHead"><div><p class="eyebrow">VISÃO PARA APRESENTAÇÃO</p><h2>Semana por semana</h2></div><div class="nav"><button id="prevDay">← Dia anterior</button><button id="nextDay">Próximo dia →</button></div></div><div id="weeks" class="weeks"></div></section>
+  <div class="demoJump"><strong>MODO DEMONSTRAÇÃO</strong><label>Ir para o dia <select id="jumpDay"></select></label></div><div class="dayNav"><button id="prevDay" class="ghost">← Dia anterior</button><button id="nextDay" class="ghost">Próximo dia →</button></div><p class="demoNote">Navegação disponível nesta versão de apresentação. Na conta real, o artista verá apenas o dia liberado.</p>
 </main>
 <div id="modal" class="modal hidden"><div class="modalCard"><button id="closeModal" class="close">×</button><h3 id="modalTitle"></h3><img id="qrImg" alt="QR Code"/><p>Escaneie com outro celular ou use o botão para abrir neste aparelho.</p><a id="modalLink" class="primary linkbtn" target="_blank" rel="noopener">Abrir link</a></div></div>
+
+<div id="actionModal" class="modal hidden"><div class="modalCard wide"><button id="closeActionModal" class="close">×</button><h3 id="actionTitle">Atividade</h3><div id="actionBody"></div></div></div>
 <script src="/data.js"></script><script src="/app.js"></script>
 </body></html>

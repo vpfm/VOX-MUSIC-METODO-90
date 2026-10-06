@@ -1,31 +1,20 @@
-# Método 90 — Área do Artista V1.4
+# VOX MUSIC — Método 90 — Área do Artista V1.7
 
-Protótipo para apresentação e deploy no Render, agora com tela de login da Área do Artista.
+Versão corrigida para Render.
 
-## Acesso inicial de demonstração
-- Usuário: `artista`
-- Senha: `Metodo90@2026`
+## V1.7
+- botão **Gravar vídeo** abre câmera + microfone no navegador;
+- botões de áudio/gravação abrem o microfone;
+- **Enviar resposta/Responder** abre campo de resposta e salva a atividade;
+- removida da Área do Artista a seção **Semana por semana / Visão para apresentação**;
+- o artista vê as atividades do dia;
+- navegação Dia anterior/Próximo dia fica apenas na versão de demonstração para apresentação aos empresários;
+- mantém autenticação V1.6.
 
-> Para uso real, altere `ARTIST_USER` e `ARTIST_PASSWORD` nas Environment Variables do Render. Não reutilize a senha de demonstração.
+> Nesta demonstração, respostas e status ficam no navegador (localStorage). A próxima etapa é persistir tudo no banco e disponibilizar no painel dos empresários.
 
-## Render
-1. Suba estes arquivos para um repositório GitHub.
-2. No Render, crie um Web Service apontando para o repositório, ou use o `render.yaml` como Blueprint.
-3. Build: `npm install`
-4. Start: `npm start`
-5. Após o deploy, abra a URL do serviço. O acesso será redirecionado para `/login`.
-
-## Segurança desta versão
-A autenticação usa sessão HTTP-only. Esta V1.4 possui um único acesso de artista para demonstração. A versão multiartista deverá usar banco de dados, senhas com hash e contas individuais.
-
-## V1.3 — Afinador e materiais
-- Afinador interativo no navegador: toca nota de referência e usa o microfone para indicar abaixo/próxima/acima.
-- Fundamentos musicais adicionados ao início da jornada: música, melodia, ritmo, afinação, notas e solfejo.
-- Materiais de apoio adicionados ao cronograma, com referências da Berklee Online, NIDCD/NIH e YouTube Creator Help.
-- O afinador precisa de HTTPS (o Render fornece) e permissão do microfone no navegador.
-
-
-## V1.4 — correção de login no Render
-- Configura `trust proxy` para HTTPS atrás do proxy do Render.
-- Cookie de sessão usa modo `secure: auto`.
-- Login só retorna sucesso depois de salvar a sessão.
+## V1.8 — Demonstração prática
+- Navegação livre pelos 90 dias com seletor "Ir para o dia".
+- Cada tela continua exibindo somente as atividades do dia escolhido.
+- Materiais demonstrativos internos: letra original, guia rápido de estudo e roteiro de entrevista de rádio.
+- Botões de materiais e QR Code integrados às atividades.
