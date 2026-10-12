@@ -24,3 +24,13 @@ Planejamento dos dias 1 a 30 disponível no código. Semana seguinte abre soment
 
 
 V1.19: removido o painel inferior MODO APRESENTACAO / Mostrar o dia da interface de treinamento. Mantidos os demais modulos.
+
+
+## V1.20 — Início oficial limpo
+- Limpeza automática e única, neste navegador, das chaves locais `m90_*` e `ouribo_instagram_*` provenientes dos testes.
+- Primeiro acesso após atualização: Dia 1, Semana 1, 0/90 concluídos; Instagram começa na Semana 1.
+- O próximo dia é calculado pelos dias concluídos em sequência, sem usar o antigo seletor de demonstração.
+- Após concluir o dia, avança automaticamente para o próximo pendente.
+- Dados novos não são apagados nas visitas seguintes, graças ao marcador `vox_m90_official_reset_v120`.
+- ATENÇÃO: o armazenamento é por navegador/aparelho. Publicar a atualização não apaga dados de outros navegadores até que cada um acesse a nova versão. Não há banco de dados persistente de atividades no servidor desta versão.
+- A limpeza é deliberadamente destrutiva para os dados locais de teste; não publicar se existirem dados reais que precisem ser preservados.
