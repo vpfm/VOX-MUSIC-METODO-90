@@ -17,3 +17,10 @@ Versão de apresentação com a Área do Artista preservada.
 - Checklist, status e observações persistidos no localStorage do navegador. **Não sincroniza entre aparelhos ou usuários**; a V1.15 não dispõe de banco de dados ou endpoints para esse fluxo.
 - Semanas 2 a 4 aguardam roteiros aprovados.
 - Arquivos modificados: public/index.html. Arquivos novos: public/instagram.js, public/instagram-data.js, public/instagram.css.
+
+
+## V1.18 — Liberação progressiva
+Planejamento dos dias 1 a 30 disponível no código. Semana seguinte abre somente quando TODOS os dias da anterior estiverem com status Publicado e as cenas, Stories e publicações marcados. Domingo não exige Reel. Os registros são salvos apenas neste navegador (localStorage), sem sincronização multiusuário nem autorização de gestor. As semanas 2–4 contêm roteiros propostos e precisam de revisão editorial antes do uso.
+
+
+V1.19: removido o painel inferior MODO APRESENTACAO / Mostrar o dia da interface de treinamento. Mantidos os demais modulos.
